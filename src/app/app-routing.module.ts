@@ -6,10 +6,11 @@ import { DashboardComponent } from './pages/dashboard/dashboard.component'; // A
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'home',
     component: HomeComponent,
   },  
-  { path: 'dashboard', component: DashboardComponent },
+  { path: '', component: DashboardComponent },
+  {path:'/details'}
   {
     path: '**', // wildcard
     component: NotFoundComponent,

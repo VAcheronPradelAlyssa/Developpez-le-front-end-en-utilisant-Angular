@@ -1,28 +1,7 @@
+<!-- dashboard.component.html -->
 <div class="dashboard-container">
-    <h1>Medals per country</h1>
+  <h1>Medals per country</h1>
   
-    <div class="stats">
-      <div class="stat-box">
-        <p>Number of JOs: <strong>{{ numberOfJOs }}</strong></p>
-      </div>
-      <div class="stat-box">
-        <p>Number of Countries: <strong>{{ numberOfCountries }}</strong></p>
-      </div>
-    </div>
-  
-    <!-- Graphique  -->
-    <div class="pie-chart">
-      <ngx-charts-pie-chart
-        [view]="[700, 500
-        ]"
-        [results]="pieChartData"
-        [legend]="false"
-        [labels]="true"
-        [doughnut]="false"
-        [explodeSlices]="false"
-        [gradient]="false"
-        [trimLabels]="false" 
-        [labelFormatting]="labelFormatting">
-      </ngx-charts-pie-chart>
-    </div>
-  </div>
+  <app-pie></app-pie>  
+
+</div>
