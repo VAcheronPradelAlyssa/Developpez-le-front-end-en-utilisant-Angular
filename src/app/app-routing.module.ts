@@ -2,7 +2,9 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component'; // Assure-toi de l'importer correctement
+import { DashboardComponent } from './pages/dashboard/dashboard.component'; 
+import { DetailsComponent } from './pages/details/details.component';
+
 
 const routes: Routes = [
   {
@@ -10,7 +12,7 @@ const routes: Routes = [
     component: HomeComponent,
   },  
   { path: '', component: DashboardComponent },
-  {path:'/details'}
+  { path: 'details/:id', component: DetailsComponent } ,
   {
     path: '**', // wildcard
     component: NotFoundComponent,

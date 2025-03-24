@@ -1,1 +1,17 @@
-<p>line works!</p>
+<!-- Affichage du graphique -->
+<ngx-charts-line-chart
+  *ngIf="lineChartData && lineChartData.length > 0"
+  [view]="[700, 400]"
+  [results]="[{ name: 'Médailles', series: lineChartData }]"
+  [xAxis]="xAxis"
+  [yAxis]="yAxis"
+  [showXAxisLabel]="showXAxisLabel"
+  [xAxisLabel]="xAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [yAxisLabel]="yAxisLabel">
+</ngx-charts-line-chart>
+
+<!-- Message si aucune donnée -->
+<div *ngIf="!lineChartData || lineChartData.length === 0">
+  <p>Aucune donnée à afficher.</p>
+</div>
