@@ -1,4 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    font-family: 'Country', sans-serif;
+  }
+  
+
 .container {
     display: flex;
     flex-direction: column;
@@ -9,11 +14,11 @@
   h1 {
     font-size: 24px;
     padding: 10px;
-    font-weight: bold;
     border: 1px solid #04838f;
     border-radius: 10px;
     color: white;  
     background-color: #04838f;
+    font-weight: lighter;
 }
 
   .stats {
@@ -32,5 +37,19 @@
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     text-align: center;
   }
-
+  .buttonBack {
+    align-items: center;
+    color: white;
+    border: solid 1px #04838f;
+    border-radius: 10px;
+    padding: 10px 20px;
+    background-color: #04838f;
+    margin: 20px auto;
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #035b63; 
+  }
   

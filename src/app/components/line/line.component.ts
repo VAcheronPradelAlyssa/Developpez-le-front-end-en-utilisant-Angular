@@ -26,9 +26,9 @@ export class LineComponent implements OnChanges {
   xAxis = true;
   yAxis = true;
   showXAxisLabel = true;
-  xAxisLabel = 'Année';
+  xAxisLabel = 'Dates';
   showYAxisLabel = true;
-  yAxisLabel = 'Nombre de Médailles';
+  yAxisLabel = 'Total Medals';
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['data'] && changes['data'].currentValue) {
