@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, HostListener } from '@angular/core';
 import { OlympicService } from 'src/app/core/services/olympic.service';
 import { OlympicCountry } from 'src/app/core/models/Olympic';
 import { Router } from '@angular/router';
@@ -7,7 +7,7 @@ import { Router } from '@angular/router';
   selector: 'app-pie',
   template: `
     <ngx-charts-pie-chart
-      [view]="[700, 500]"
+      [view]="view"
       [results]="pieChartData"
       [legend]="showLegend"
       [labels]="showLabels"
@@ -15,7 +15,6 @@ import { Router } from '@angular/router';
       [gradient]="gradient"
       [explodeSlices]="explodeSlices"
       [trimLabels]="trimLabels"
-      [tooltipDisabled]="false"
       [labelFormatting]="labelFormatting"
       (select)="onSelect($event)">
     </ngx-charts-pie-chart>
@@ -25,13 +24,14 @@ import { Router } from '@angular/router';
 })
 export class PieComponent implements OnInit {
   public pieChartData: any[] = [];
+  public view: [number, number] = [700, 500];  
 
   showLegend = false;
   showLabels = true;
   doughnut = false;
   gradient = false;
   explodeSlices = false;
-  trimLabels = false;
+  trimLabels = true;  
 
   constructor(
     private olympicService: OlympicService,
@@ -66,4 +66,28 @@ export class PieComponent implements OnInit {
   labelFormatting = (value: any) => {
     return value.toUpperCase();
   };
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event): void {
+    this.updateChartDimensions();
+  }
+
+  private updateChartDimensions(): void {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    if (width < 600) {
+
+      this.view = [width - 50, height / 2];  
+    } else if (width < 1024) {
+
+      this.view = [width - 100, height / 2];
+    } else {
+
+      this.view = [700, 500];  
+    }
+  }
+
+
+  
 }

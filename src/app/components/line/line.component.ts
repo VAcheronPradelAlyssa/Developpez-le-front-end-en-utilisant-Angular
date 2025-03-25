@@ -1,11 +1,11 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, HostListener } from '@angular/core';
 
 @Component({
   selector: 'app-line',
   template: `
     <ngx-charts-line-chart
       *ngIf="lineChartData && lineChartData.length > 0"
-      [view]="[700, 400]"
+      [view]="view"
       [results]="lineChartResults"
       [xAxis]="xAxis"
       [yAxis]="yAxis"
@@ -22,13 +22,14 @@ export class LineComponent implements OnChanges {
   @Input() data: any[] = [];
   public lineChartData: any[] = [];
 
-
   xAxis = true;
   yAxis = true;
   showXAxisLabel = true;
   xAxisLabel = 'Dates';
   showYAxisLabel = true;
   yAxisLabel = 'Total Medals';
+
+  view: [number, number] = [700, 400];  
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['data'] && changes['data'].currentValue) {
@@ -59,5 +60,27 @@ export class LineComponent implements OnChanges {
 
   get lineChartResults(): any[] {
     return [{ name: 'Médailles', series: this.lineChartData }];
+  }
+
+  @HostListener('window:resize', ['$event'])
+  onResize(event: Event): void {
+    this.updateChartDimensions();
+  }
+
+  private updateChartDimensions(): void {
+    const width = window.innerWidth;
+    const height = window.innerHeight;
+
+    if (width < 600) {
+
+      this.view = [width - 50, height / 2];  
+
+    } else if (width < 1024) {
+
+      this.view = [width - 100, height / 2];
+
+    } else {
+      this.view = [700, 400]; 
+    }
   }
 }
