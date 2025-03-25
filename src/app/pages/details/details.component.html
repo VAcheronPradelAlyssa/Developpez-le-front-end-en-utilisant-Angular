@@ -1,23 +1,21 @@
-<div *ngIf="country" class="country-details">
+  <div *ngIf="country" class="container">
     <h1>{{ country.country }}</h1>
-  
+
     <div class="stats">
-        <div class="stat-box">
-      <p>Nombre de participations: {{ country.participations.length }}</p>
-      </div>    
       <div class="stat-box">
-      <p>Nombre total de médailles: {{ getTotalMedals(country.participations) }}</p>
+        <p>Nombre de participations: {{ country.participations.length }}</p>
       </div>
       <div class="stat-box">
-      <p>Nombre total d'athlètes: {{ getTotalAthletes(country.participations) }}</p>
-      </div>    
+        <p>Nombre total de médailles: {{ getTotalMedals(country.participations) }}</p>
+      </div>
+      <div class="stat-box">
+        <p>Nombre total d'athlètes: {{ getTotalAthletes(country.participations) }}</p>
+      </div>
     </div>
-  
+
     <div class="line-chart">
-        <app-line [data]="country.participations"></app-line>
+      <app-line [data]="country.participations"></app-line>
     </div>
-  
- 
+
     <button (click)="goBack()">Retour</button>
   </div>
-  
