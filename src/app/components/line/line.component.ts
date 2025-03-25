@@ -2,21 +2,33 @@ import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-line',
-  templateUrl: './line.component.html',
+  template: `
+    <ngx-charts-line-chart
+      *ngIf="lineChartData && lineChartData.length > 0"
+      [view]="[700, 400]"
+      [results]="lineChartResults"
+      [xAxis]="xAxis"
+      [yAxis]="yAxis"
+      [showXAxisLabel]="showXAxisLabel"
+      [xAxisLabel]="xAxisLabel"
+      [showYAxisLabel]="showYAxisLabel"
+      [yAxisLabel]="yAxisLabel">
+    </ngx-charts-line-chart>
+  `,
   styleUrls: ['./line.component.scss'],
   standalone: false
 })
 export class LineComponent implements OnChanges {
-  @Input() data: any[] = []; 
-  public lineChartData: any[] = []; 
+  @Input() data: any[] = [];
+  public lineChartData: any[] = [];
 
-  public colorScheme = { domain: ['#5AA454'] }; 
-  public xAxis = true;
-  public yAxis = true;
-  public showXAxisLabel = true;
-  public xAxisLabel = 'Année';
-  public showYAxisLabel = true;
-  public yAxisLabel = 'Nombre de Médailles';
+
+  xAxis = true;
+  yAxis = true;
+  showXAxisLabel = true;
+  xAxisLabel = 'Année';
+  showYAxisLabel = true;
+  yAxisLabel = 'Nombre de Médailles';
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['data'] && changes['data'].currentValue) {
@@ -43,5 +55,9 @@ export class LineComponent implements OnChanges {
       name: year.toString(),
       value: medalsCount
     }));
+  }
+
+  get lineChartResults(): any[] {
+    return [{ name: 'Médailles', series: this.lineChartData }];
   }
 }

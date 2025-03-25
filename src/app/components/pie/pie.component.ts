@@ -5,7 +5,22 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pie',
-  templateUrl: './pie.component.html',
+  template: `
+    
+        <ngx-charts-pie-chart
+          [view]="[700, 500]"
+          [results]="pieChartData"
+          [legend]="showLegend"
+          [labels]="showLabels"
+          [doughnut]="doughnut"
+          [gradient]="gradient"
+          [explodeSlices]="explodeSlices"
+          [trimLabels]="trimLabels"
+          [labelFormatting]="labelFormatting"
+          (select)="onSelect($event)">
+        </ngx-charts-pie-chart>
+   
+  `,
   styleUrls: ['./pie.component.scss'],
   standalone: false
 })
@@ -16,6 +31,15 @@ export class PieComponent implements OnInit {
   public numberOfJOs: number = 0;
   public numberOfCountries: number = 0;
 
+ 
+ 
+  showLegend = false;
+  showLabels = true;
+  doughnut = false;
+  gradient = false;
+  explodeSlices = false;
+  trimLabels = false;
+
   constructor(private olympicService: OlympicService, private router: Router) {}
 
   ngOnInit(): void {
@@ -25,7 +49,7 @@ export class PieComponent implements OnInit {
           this.pieChartData = data.map((country) => ({
             name: country.country,
             value: this.getTotalMedals(country.participations),
-            extra: { countryId: country.id } 
+            extra: { countryId: country.id }
           }));
 
           this.numberOfJOs = this.calculateUniqueYears(data);
@@ -48,16 +72,13 @@ export class PieComponent implements OnInit {
     });
     return years.size;
   }
+
   onSelect(event: any): void {
-    console.log('Event:', event);
     if (event && event.extra) {
       const countryId = event.extra.countryId;
-      console.log('Navigating to country ID:', countryId);
-      this.router.navigate(['/details', countryId]); 
-      console.error('Invalid event structure:', event);
+      this.router.navigate(['/details', countryId]);
     }
   }
-  
 
   labelFormatting = (value: any) => {
     return value.toUpperCase();

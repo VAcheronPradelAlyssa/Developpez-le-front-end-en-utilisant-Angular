@@ -9,18 +9,7 @@
   </div>
 
   <div class="pie-chart-container">
-    <ngx-charts-pie-chart
-      [view]="[700, 500]"
-      [results]="pieChartData"
-      [legend]="false"
-      [labels]="true"
-      [doughnut]="false"
-      [explodeSlices]="false"
-      [gradient]="false"
-      [trimLabels]="false"
-      [labelFormatting]="labelFormatting"
-      (select)="onSelect($event)">
-    </ngx-charts-pie-chart>
+<app-pie></app-pie>
    
   </div>
 </div>
