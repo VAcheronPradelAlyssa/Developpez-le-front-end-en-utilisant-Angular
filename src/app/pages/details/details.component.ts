@@ -31,7 +31,8 @@ export class DetailsComponent implements OnInit {
     return participations.reduce((total, participation) => total + participation.athleteCount, 0);
   }
 
-  goBack(): void {
+  /*goBack(): void {
     window.history.back();
-  }
+  }*/
+   
 }
