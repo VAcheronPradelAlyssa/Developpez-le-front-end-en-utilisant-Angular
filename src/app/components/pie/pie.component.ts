@@ -31,7 +31,7 @@ export class PieComponent implements OnInit {
   doughnut = false;
   gradient = false;
   explodeSlices = false;
-  trimLabels = true;  
+  trimLabels = false;  
 
   constructor(
     private olympicService: OlympicService,

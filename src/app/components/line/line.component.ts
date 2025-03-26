@@ -3,17 +3,25 @@ import { Component, Input, OnChanges, SimpleChanges, HostListener } from '@angul
 @Component({
   selector: 'app-line',
   template: `
-    <ngx-charts-line-chart
-      *ngIf="lineChartData && lineChartData.length > 0"
-      [view]="view"
-      [results]="lineChartResults"
-      [xAxis]="xAxis"
-      [yAxis]="yAxis"
-      [showXAxisLabel]="showXAxisLabel"
-      [xAxisLabel]="xAxisLabel"
-      [showYAxisLabel]="showYAxisLabel"
-      [yAxisLabel]="yAxisLabel">
-    </ngx-charts-line-chart>
+ <ngx-charts-line-chart
+  *ngIf="lineChartData && lineChartData.length > 0"
+  [view]="view"
+  [results]="lineChartResults"
+  [xAxis]="xAxis"
+  [yAxis]="yAxis"
+  [showXAxisLabel]="showXAxisLabel"
+  [xAxisLabel]="xAxisLabel"
+  [showYAxisLabel]="showYAxisLabel"
+  [yAxisLabel]="yAxisLabel"
+  [showGridLines]="showGridLines"
+  [gradient]="gradient"
+  [tooltipDisabled]="tooltipDisabled"
+
+  
+  >
+</ngx-charts-line-chart>
+
+
   `,
   styleUrls: ['./line.component.scss'],
   standalone: false
@@ -28,6 +36,9 @@ export class LineComponent implements OnChanges {
   xAxisLabel = 'Dates';
   showYAxisLabel = true;
   yAxisLabel = 'Total Medals';
+  showGridLines = true;
+  gradient = false;
+  tooltipDisabled = false;
 
   view: [number, number] = [700, 400];  
 
@@ -59,7 +70,7 @@ export class LineComponent implements OnChanges {
   }
 
   get lineChartResults(): any[] {
-    return [{ name: 'Médailles', series: this.lineChartData }];
+    return [{ name: 'Medals', series: this.lineChartData }];
   }
 
   @HostListener('window:resize', ['$event'])
