@@ -6,7 +6,7 @@ import { Component, Input, OnChanges, SimpleChanges, HostListener } from '@angul
  <ngx-charts-line-chart
   *ngIf="lineChartData && lineChartData.length > 0"
   [view]="view"
-  [results]="lineChartResults"
+  [results]="[{ name: 'Medals', series: lineChartData }]"
   [xAxis]="xAxis"
   [yAxis]="yAxis"
   [showXAxisLabel]="showXAxisLabel"
@@ -69,9 +69,7 @@ export class LineComponent implements OnChanges {
     }));
   }
 
-  get lineChartResults(): any[] {
-    return [{ name: 'Medals', series: this.lineChartData }];
-  }
+
 
   @HostListener('window:resize', ['$event'])
   onResize(event: Event): void {
@@ -94,4 +92,5 @@ export class LineComponent implements OnChanges {
       this.view = [700, 400]; 
     }
   }
+  
 }
