@@ -15,7 +15,6 @@ import { Router } from '@angular/router';
       [gradient]="gradient"
       [explodeSlices]="explodeSlices"
       [trimLabels]="trimLabels"
-      [labelFormatting]="labelFormatting"
       (select)="onSelect($event)">
     </ngx-charts-pie-chart>
   `,
@@ -63,9 +62,7 @@ export class PieComponent implements OnInit {
     }
   }
 
-  labelFormatting = (value: any) => {
-    return value.toUpperCase();
-  };
+ 
 
   @HostListener('window:resize', ['$event'])
   onResize(event: Event): void {
