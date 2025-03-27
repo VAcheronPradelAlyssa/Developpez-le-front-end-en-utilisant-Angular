@@ -1,29 +1,40 @@
-# OlympicGamesStarter
+<h1 align="center">Welcome OlympicGame 👋</h1>
+<p>
+  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
+</p>
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.0.3.
+> Ce projet consiste à développer le front-end d’un dashboard interactif pour la chaîne de télévision TéléSport, qui prépare une couverture spéciale des prochains Jeux Olympiques. Ce dashboard permettra aux utilisateurs de visualiser les statistiques des précédents Jeux Olympiques, notamment :
 
-Don't forget to install your node_modules before starting (`npm install`).
+### 🏠 [Homepage](L'application doit être responsive et fonctionner à la fois sur mobile et ordinateur.)
 
-## Development server
+## Install
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+```sh
+npm install
+```
 
-## Build
+## Usage
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+```sh
+npm run start
+```
 
-## Where to start
+## Run tests
 
-As you can see, an architecture has already been defined for the project. It is just a suggestion, you can choose to use your own. The predefined architecture includes (in addition to the default angular architecture) the following:
+```sh
+npm run test
+```
 
-- `components` folder: contains every reusable components
-- `pages` folder: contains components used for routing
-- `core` folder: contains the business logic (`services` and `models` folders)
+## Author
 
-I suggest you to start by understanding this starter code. Pay an extra attention to the `app-routing.module.ts` and the `olympic.service.ts`.
+👤 **Vacheron Alyssa**
 
-Once mastered, you should continue by creating the typescript interfaces inside the `models` folder. As you can see I already created two files corresponding to the data included inside the `olympic.json`. With your interfaces, improve the code by replacing every `any` by the corresponding interface.
+* Website: Vacheron Alyssa
+* Github: [@VAcheronPradelAlyssa](https://github.com/VAcheronPradelAlyssa)
 
-You're now ready to implement the requested features.
+## Show your support
 
-Good luck!
+Give a ⭐️ if this project helped you!
+
+***
+_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
