@@ -3,7 +3,7 @@
   <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
 </p>
 
-> Ce projet consiste à développer le front-end d’un dashboard interactif pour la chaîne de télévision TéléSport, qui prépare une couverture spéciale des prochains Jeux Olympiques. Ce dashboard permettra aux utilisateurs de visualiser les statistiques des précédents Jeux Olympiques, notamment :
+> Ce projet consiste à développer le front-end d’un dashboard interactif pour la chaîne de télévision TéléSport, qui prépare une couverture spéciale des prochains Jeux Olympiques. Ce dashboard permettra aux utilisateurs de visualiser les statistiques des précédents Jeux Olympiques
 
 ### 🏠 [Homepage](L'application doit être responsive et fonctionner à la fois sur mobile et ordinateur.)
 
