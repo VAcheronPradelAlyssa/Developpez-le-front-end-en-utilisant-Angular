@@ -1,13 +1,15 @@
-<h1 align="center">Welcome OlympicGame 👋</h1>
-<p>
-  <img alt="Version" src="https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000" />
-</p>
 
-> Ce projet consiste à développer le front-end d’un dashboard interactif pour la chaîne de télévision TéléSport, qui prépare une couverture spéciale des prochains Jeux Olympiques. Ce dashboard permettra aux utilisateurs de visualiser les statistiques des précédents Jeux Olympiques
+# OlympicGame
 
-### 🏠 [Homepage](L'application doit être responsive et fonctionner à la fois sur mobile et ordinateur.)
+This interactive web application allows users to prepare for the future Olympic Games by viewing information from previous Games: number of medals, countries, participants, etc...
 
-## Install
+Using Angular CLI 19.2.4
+Node: 18.20.6
+Package Manager: npm 10.8.2
+OS: linux x64
+## Installation
+
+Install my-project with npm
 
 ```sh
 npm install
@@ -25,16 +27,9 @@ npm run start
 npm run test
 ```
 
-## Author
+## Authors
 
 👤 **Vacheron Alyssa**
 
-* Website: Vacheron Alyssa
 * Github: [@VAcheronPradelAlyssa](https://github.com/VAcheronPradelAlyssa)
 
-## Show your support
-
-Give a ⭐️ if this project helped you!
-
-***
-_This README was generated with ❤️ by [readme-md-generator](https://github.com/kefranabg/readme-md-generator)_
