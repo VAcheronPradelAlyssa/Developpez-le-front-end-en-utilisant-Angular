@@ -48,7 +48,7 @@ export class PieComponent implements OnInit {
             extra: { countryId: country.id }
           }));
 
-          this.allCountriesIds = data.map(country => country.id); // Stocke tous les ID valides
+          this.allCountriesIds = data.map(country => country.id); 
           console.log("IDs des pays chargés :", this.allCountriesIds);
         }
       });
@@ -89,8 +89,7 @@ export class PieComponent implements OnInit {
       this.view = [width - 50, height / 2];
     } else if (width < 1024) {
       this.view = [width - 100, height / 2];
-    } else {
-      this.view = [700, 500];
+    
     }
   }
 }

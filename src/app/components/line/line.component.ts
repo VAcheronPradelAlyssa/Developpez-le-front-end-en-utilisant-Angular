@@ -88,8 +88,6 @@ export class LineComponent implements OnChanges {
 
       this.view = [width - 100, height / 2];
 
-    } else {
-      this.view = [700, 400]; 
     }
   }
   
