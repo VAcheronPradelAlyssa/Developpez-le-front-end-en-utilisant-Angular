@@ -21,18 +21,22 @@ export class DetailsComponent implements OnInit {
     const countryId = this.route.snapshot.paramMap.get('id');
     if (countryId) {
       this.olympicService.getCountryById(+countryId)
-        //.pipe(delay(15000)) 
+        //.pipe(delay(5000))  
         .subscribe({
           next: (country) => {
             this.country = country;
             this.loading = false;
           },
           error: (error) => {
-            this.error = true;
-            this.loading = false;
+            this.error = true;  
+            this.loading = false;  
+            console.error('Erreur:', error);  
           }
         });
     }
+
+  //this.error = true; 
+   //this.loading = false; 
   }
 
   getTotalMedals(participations: any[]): number {

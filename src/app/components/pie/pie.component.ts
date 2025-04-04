@@ -23,7 +23,8 @@ import { Router } from '@angular/router';
 })
 export class PieComponent implements OnInit {
   public pieChartData: any[] = [];
-  public view: [number, number] = [700, 500];  
+  public view: [number, number] = [700, 500];
+  public allCountriesIds: number[] = [];  
 
   showLegend = false;
   showLabels = true;
@@ -46,6 +47,9 @@ export class PieComponent implements OnInit {
             value: this.getTotalMedals(country.participations),
             extra: { countryId: country.id }
           }));
+
+          this.allCountriesIds = data.map(country => country.id); // Stocke tous les ID valides
+          console.log("IDs des pays chargés :", this.allCountriesIds);
         }
       });
     });
@@ -56,13 +60,21 @@ export class PieComponent implements OnInit {
   }
 
   onSelect(event: any): void {
-    if (event && event.extra) {
-      const countryId = event.extra.countryId;
-      this.router.navigate(['/details', countryId]);
-    }
-  }
 
- 
+    //const countryId = 9999;
+    const countryId = event.extra.countryId;
+
+    if (!this.allCountriesIds.includes(countryId)) {
+      console.error(`Erreur : Le pays avec l'ID ${countryId} n'existe pas.`);
+      alert("Ce pays n'existe pas dans notre base de données.");
+      return;
+    }
+
+    this.router.navigate(['/details', countryId]).catch(err => {
+      console.error("Erreur de navigation :", err);
+      alert("Impossible d'ouvrir la page des détails. Veuillez réessayer plus tard.");
+    });
+  }
 
   @HostListener('window:resize', ['$event'])
   onResize(event: Event): void {
@@ -74,17 +86,11 @@ export class PieComponent implements OnInit {
     const height = window.innerHeight;
 
     if (width < 600) {
-
-      this.view = [width - 50, height / 2];  
+      this.view = [width - 50, height / 2];
     } else if (width < 1024) {
-
       this.view = [width - 100, height / 2];
     } else {
-
-      this.view = [700, 500];  
+      this.view = [700, 500];
     }
   }
-
-
-  
 }

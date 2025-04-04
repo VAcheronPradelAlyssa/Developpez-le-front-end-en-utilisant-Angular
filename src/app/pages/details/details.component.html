@@ -1,31 +1,31 @@
-<div class="container">
-  <div *ngIf="loading" class="loading-message">
-    Chargement des données...
+<div *ngIf="loading" class="loading-message">
+  Chargement des données...
+</div>
+
+<div *ngIf="error" class="error-message">
+  Une erreur s'est produite lors du chargement des données.
+</div>
+
+<div *ngIf="country && !loading && !error" class="container">
+  <h1>{{ country.country }}</h1>
+
+  <div class="stats">
+    <div class="stat-box">
+      <p>Nombre de participations <br><strong>{{ country.participations.length }}</strong></p>
+    </div>
+    <div class="stat-box">
+      <p>Nombre total de médailles <br><strong>{{ getTotalMedals(country.participations) }}</strong></p>
+    </div>
+    <div class="stat-box">
+      <p>Nombre total d'athlètes <br><strong>{{ getTotalAthletes(country.participations) }}</strong></p>
+    </div>
   </div>
 
-  <div *ngIf="error" class="error-message">
-    Une erreur s'est produite lors du chargement des données.
-  </div>
-
-  <div *ngIf="country && !loading && !error" class="content">
-    <h1>{{ country.country }}</h1>
-
-    <div class="stats">
-      <div class="stat-box">
-        <p>Number of entries <br><strong>{{ country.participations.length }}</strong></p>
-      </div>
-      <div class="stat-box">
-        <p>Total number medals <br><strong>{{ getTotalMedals(country.participations) }}</strong></p>
-      </div>
-      <div class="stat-box">
-        <p>Total number of athletes <br><strong>{{ getTotalAthletes(country.participations) }}</strong></p>
-      </div>
-    </div>
-
-    <div class="line-chart">
-      <app-line [data]="country.participations"></app-line>
-    </div>
-
-    <a routerLink=""><button class="buttonBack">Retour</button></a>
+  <div class="line-chart">
+    <app-line [data]="country.participations"></app-line>
   </div>
 </div>
+
+<a routerLink="" *ngIf="error || (country && !loading && !error)">
+  <button class="buttonBack">Retour</button>
+</a>
