@@ -10,15 +10,13 @@
     <p>Il semble qu'il n'y ait aucune donnée à afficher pour le moment.</p>
   </div>
 
-  
-
   <div *ngIf="!loading && !noData && !error">
     <div class="stats">
       <div class="stat-box">
-        <p>Number of JOs: <br><strong>{{ numberOfJOs }}</strong></p>
+        <p>Number of JOs <br><strong>{{ numberOfJOs }}</strong></p>
       </div>
       <div class="stat-box">
-        <p>Number of Countries: <br><strong>{{ numberOfCountries }}</strong></p>
+        <p>Number of Countries <br><strong>{{ numberOfCountries }}</strong></p>
       </div>
     </div>
 

@@ -26,6 +26,7 @@ export class PieComponent implements OnInit {
   public view: [number, number] = [700, 500];
   public allCountriesIds: number[] = [];  
 
+  //Options du graphique
   showLegend = false;
   showLabels = true;
   doughnut = false;
@@ -39,6 +40,7 @@ export class PieComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    //chargement données olympiques et construction jeu de données graphique
     this.olympicService.loadInitialData().subscribe(() => {
       this.olympicService.getOlympics().subscribe((data: OlympicCountry[]) => {
         if (data) {
@@ -59,9 +61,10 @@ export class PieComponent implements OnInit {
     return participations.reduce((total, participation) => total + participation.medalsCount, 0);
   }
 
+  //event sélection d'un pays dans le graphique, redirige page détails
   onSelect(event: any): void {
 
-    //const countryId = 9999;
+    //const countryId = 9999; 
     const countryId = event.extra.countryId;
 
     if (!this.allCountriesIds.includes(countryId)) {
@@ -75,12 +78,13 @@ export class PieComponent implements OnInit {
       alert("Impossible d'ouvrir la page des détails. Veuillez réessayer plus tard.");
     });
   }
-
+  //gestion dynamique graphique, redimensionnement de la fenêtre
   @HostListener('window:resize', ['$event'])
   onResize(event: Event): void {
     this.updateChartDimensions();
   }
 
+  //taille graphique redéfnit
   private updateChartDimensions(): void {
     const width = window.innerWidth;
     const height = window.innerHeight;
